@@ -1,0 +1,32 @@
+management: 
+  endpoint: 
+    metrics: 
+      enabled: true
+    prometheus: 
+      enabled: true
+  endpoints: 
+    web: 
+      exposure: 
+        include: "*"
+  metrics: 
+    export: 
+      prometheus: 
+        enabled: true
+spring: 
+  application: 
+    name: paymentexecution
+  jackson: 
+    serialization: 
+      WRITE_DATES_AS_TIMESTAMPS: false
+  profiles: 
+    active: local
+  security: 
+    oauth2: 
+      client: 
+        clientId: admin
+        clientSecret: admin
+      resource: 
+        token-info-uri: http://localhost:9000/as/introspect.oauth2
+  sleuth: 
+    sampler: 
+      percentage: 1
